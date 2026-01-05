@@ -1,50 +1,54 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Static Web App Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Static-First
+- Deliver prebuilt files (HTML, CSS, JS, images) via static hosting.
+- No databases, or SSR are required.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Accessibility
+- Use semantic HTML, visible focus, labels, and keyboard navigation.
+- Meet WCAG 2.1 AA color contrast for text and UI controls.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Performance
+- Keep payloads small: minify/compress assets, lazy-load images, and defer non-critical JS.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. SEO & Shareability
+- Provide a unique <title> and meta description per page, plus a canonical URL.
+- Include basic Open Graph tags for social sharing where applicable.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Security Hygiene
+- HTTPS-only; no secrets in client code or .env files.
+- CSP-compatible markup (avoid inline scripts/styles); send `X-Content-Type-Options: nosniff` when hosting.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Minimum Requirements
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Structure
+- Entry: `index.html`; Fallback: `404.html` for unknown routes.
+- Directories: `/assets` (css/js/img/fonts), `/public` (robots.txt, sitemap.xml, favicon.ico), `/dist` (build output).
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### HTML
+- `<meta charset="utf-8">` and `<meta name="viewport" content="width=device-width, initial-scale=1">`.
+- One `<h1>` per page; descriptive `<title>` and `<meta name="description">`.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### CSS/JS
+- Prefer one minified CSS and one minified JS bundle.
+- Load non-critical JS with `defer` or as ES modules; keep CSS render-blocking minimal.
+
+### Routing
+- Use relative URLs; support subpath deployments.
+- `404.html` provides a friendly fallback and link back to home.
+
+### Build & Deploy
+- Cache policy: HTML `Cache-Control: public, max-age=300`; versioned assets with content hashes `public, max-age=31536000, immutable`.
+
+## Definition of Done
+- Lighthouse: Accessibility ≥ 90, SEO ≥ 90, Best Practices ≥ 90, Performance ≥ 85.
+- Core content renders with JavaScript disabled; zero console errors on load.
+- No broken internal links; works on latest Chrome/Firefox/Safari/Edge (desktop and mobile).
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+- These requirements take precedence for static delivery concerns.
+- Amendments require documenting impact and updating deployment guidance.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-18 | **Last Amended**: 2025-12-18

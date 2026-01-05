@@ -1,0 +1,46 @@
+# Build outputs
+bin/
+obj/
+dist/
+
+# .NET tooling
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+*.nupkg
+*.snupkg
+*.dotnet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet
+.nuget/
+packages/
+
+# Rider / IntelliJ
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env files
+.env*
+
+# Node (in case tooling added later)
+node_modules/
+/.vs
