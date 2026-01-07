@@ -52,7 +52,7 @@ internal static class Program
 
     private static bool TryParseArgs(string[] args, out GeneratorOptions options, out string error)
     {
-        var cwd = Directory.GetCurrentDirectory();
+        var cwd = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         string? input = Path.Combine(cwd, "content");
         string? templates = Path.Combine(cwd, "site", "templates");
         string? assets = Path.Combine(cwd, "site", "assets");
