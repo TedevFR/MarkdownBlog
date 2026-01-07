@@ -36,7 +36,7 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal --configuration Release
 
     - name: Run app to produce dist
       # Adjust this command if your app/project needs a path or special args.
