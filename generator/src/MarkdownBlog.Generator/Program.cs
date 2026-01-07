@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace MarkdownBlog.Generator;
 
 internal static class Program
