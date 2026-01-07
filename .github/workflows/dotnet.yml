@@ -41,7 +41,7 @@ jobs:
     - name: Run app to produce dist
       # Adjust this command if your app/project needs a path or special args.
       # If your app produces a platform-specific Windows-only .exe, switch to windows-latest and call the .exe instead.
-      run: dotnet run --no-build --configuration Release --project generator/src/MarkdownBlog.Generator
+      run: dotnet run --no-build --configuration Release --project generator/src/MarkdownBlog.Generator --out dist
 
     - name: Show dist contents
       run: |
