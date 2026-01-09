@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace MarkdownBlog.Generator;
 
 internal static class Program
@@ -54,7 +52,7 @@ internal static class Program
 
     private static bool TryParseArgs(string[] args, out GeneratorOptions options, out string error)
     {
-        var cwd = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        var cwd = Directory.GetCurrentDirectory();
         string? input = Path.Combine(cwd, "content");
         string? templates = Path.Combine(cwd, "site", "templates");
         string? assets = Path.Combine(cwd, "site", "assets");
