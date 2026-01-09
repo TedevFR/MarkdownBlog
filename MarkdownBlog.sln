@@ -10,6 +10,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownBlog.Generator", "g
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownBlog.Generator.Tests", "generator\src\MarkdownBlog.Generator.Tests\MarkdownBlog.Generator.Tests.csproj", "{FC134A39-E04A-DE02-6A15-AC19E8ADABC2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6A410015-E6C3-4489-A4EB-5637DDF15463}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{91F95778-705D-498A-A734-6B34A42EE6D0}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +39,7 @@ Global
 		{F72B5288-17E5-C8C5-DF15-FF2E56F1A59B} = {3FA0F85F-A7C6-0754-1E55-9BD5D403A7D0}
 		{DA7C0E62-71CE-15BF-8429-C9A38C80C293} = {F72B5288-17E5-C8C5-DF15-FF2E56F1A59B}
 		{FC134A39-E04A-DE02-6A15-AC19E8ADABC2} = {F72B5288-17E5-C8C5-DF15-FF2E56F1A59B}
+		{91F95778-705D-498A-A734-6B34A42EE6D0} = {6A410015-E6C3-4489-A4EB-5637DDF15463}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BAEF7DB6-5624-490F-8361-8AE70FCFED2E}
