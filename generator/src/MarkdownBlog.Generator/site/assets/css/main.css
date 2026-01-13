@@ -350,3 +350,14 @@ a:hover {
     font-size: 1.5em;
   }
 }
+
+/* About page: justify content for better readability */
+.about-content {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
