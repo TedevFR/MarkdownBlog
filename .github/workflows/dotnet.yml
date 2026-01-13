@@ -11,6 +11,12 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Set to "true" to upload and deploy to GitHub Pages when running manually'
+        required: false
+        default: 'false'
 
 permissions:
   contents: read
@@ -49,11 +55,11 @@ jobs:
         ls -la dist || true
 
     - name: Upload artifact for GitHub Pages
-      if: github.event_name == 'push'
+      if: github.event_name == 'push' || github.event.inputs.deploy == 'true'
       uses: actions/upload-pages-artifact@v4
       with:
         path: dist
 
     - name: Deploy to GitHub Pages
-      if: github.event_name == 'push'
+      if: github.event_name == 'push' || github.event.inputs.deploy == 'true'
       uses: actions/deploy-pages@v4
