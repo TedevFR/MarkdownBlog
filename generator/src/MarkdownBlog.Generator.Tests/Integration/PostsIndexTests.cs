@@ -43,8 +43,9 @@ public sealed class PostsIndexTests
             Assert.True(File.Exists(indexPath));
 
             var html = File.ReadAllText(indexPath, Encoding.UTF8);
-            Assert.Equal(1, CountOccurrences(html, ">A<"));
-            Assert.Equal(1, CountOccurrences(html, ">B<"));
+            // Each title appears twice: once for FR and once for EN (bilingual support)
+            Assert.Equal(2, CountOccurrences(html, ">A<"));
+            Assert.Equal(2, CountOccurrences(html, ">B<"));
         }
         finally
         {
