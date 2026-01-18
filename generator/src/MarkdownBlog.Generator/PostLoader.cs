@@ -2,6 +2,8 @@ namespace MarkdownBlog.Generator;
 
 public static class PostLoader
 {
+    private const string LangSeparator = "<!-- lang:en -->";
+
     public static IReadOnlyList<Post> LoadPosts(string inputDir)
     {
         var postsDir = Path.Combine(inputDir, "posts");
@@ -16,31 +18,45 @@ public static class PostLoader
             var markdown = File.ReadAllText(filePath);
             var parsed = FrontMatterParser.Parse(markdown);
 
-            var title = FrontMatterParser.GetString(parsed.Data, "title");
+            var (titleFr, titleEn) = FrontMatterParser.GetLocalizedString(parsed.Data, "title");
             var date = FrontMatterParser.GetDateTimeOffset(parsed.Data, "date");
-            if (string.IsNullOrWhiteSpace(title) || !date.HasValue)
+            if (string.IsNullOrWhiteSpace(titleFr) || !date.HasValue)
             {
                 continue;
             }
 
             var slug = FrontMatterParser.GetString(parsed.Data, "slug");
-            slug = string.IsNullOrWhiteSpace(slug) ? Slugifier.Slugify(title) : Slugifier.Slugify(slug);
+            slug = string.IsNullOrWhiteSpace(slug) ? Slugifier.Slugify(titleFr) : Slugifier.Slugify(slug);
 
-            var excerpt = ExcerptGenerator.Generate(FrontMatterParser.GetString(parsed.Data, "excerpt"), parsed.BodyMarkdown);
+            var (excerptFr, excerptEn) = FrontMatterParser.GetLocalizedString(parsed.Data, "excerpt");
             var cover = FrontMatterParser.GetString(parsed.Data, "cover");
             var tags = FrontMatterParser.GetStringArray(parsed.Data, "tags");
 
-            var html = MarkdownConverter.ToHtml(parsed.BodyMarkdown);
+            // Split content by language separator
+            var (contentFr, contentEn) = SplitContentByLanguage(parsed.BodyMarkdown);
+
+            var htmlFr = MarkdownConverter.ToHtml(contentFr);
+            var htmlEn = !string.IsNullOrWhiteSpace(contentEn) ? MarkdownConverter.ToHtml(contentEn) : null;
+
+            // Generate excerpt from content if not provided in front matter
+            var finalExcerptFr = ExcerptGenerator.Generate(excerptFr, contentFr);
+            var finalExcerptEn = !string.IsNullOrWhiteSpace(excerptEn) 
+                ? excerptEn 
+                : (!string.IsNullOrWhiteSpace(contentEn) ? ExcerptGenerator.Generate(null, contentEn) : null);
 
             posts.Add(new Post
             {
-                Title = title,
+                Title = titleFr,
+                TitleEn = titleEn,
                 Slug = slug,
                 Date = date.Value,
-                Excerpt = excerpt,
-                Description = excerpt,
+                Excerpt = finalExcerptFr,
+                ExcerptEn = finalExcerptEn,
+                Description = finalExcerptFr,
+                DescriptionEn = finalExcerptEn,
                 ContentMarkdownPath = filePath,
-                ContentHtml = html,
+                ContentHtml = htmlFr,
+                ContentHtmlEn = htmlEn,
                 CoverImage = cover,
                 Tags = tags,
                 CanonicalHref = OutputPaths.HrefForPostDetail(slug),
@@ -49,5 +65,20 @@ public static class PostLoader
 
         // Stable ordering is handled by PostFilter.
         return posts;
+    }
+
+    private static (string Fr, string? En) SplitContentByLanguage(string bodyMarkdown)
+    {
+        var separatorIndex = bodyMarkdown.IndexOf(LangSeparator, StringComparison.OrdinalIgnoreCase);
+        
+        if (separatorIndex < 0)
+        {
+            return (bodyMarkdown.Trim(), null);
+        }
+
+        var frContent = bodyMarkdown[..separatorIndex].Trim();
+        var enContent = bodyMarkdown[(separatorIndex + LangSeparator.Length)..].Trim();
+
+        return (frContent, string.IsNullOrWhiteSpace(enContent) ? null : enContent);
     }
 }

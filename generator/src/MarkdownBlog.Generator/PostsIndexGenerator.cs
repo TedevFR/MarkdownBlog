@@ -11,21 +11,20 @@ public static class PostsIndexGenerator
         var openGraph = OpenGraph.Website("All Posts", "Browse all posts", canonical);
 
         var aboutHref = UrlBuilder.HrefFromRoot(baseHref, OutputPaths.HrefForAbout());
-        var emptyState = $"<p>No posts yet.</p><p><a href=\"{aboutHref}\">Learn more on the About page</a></p>";
+        var emptyState = $"<p data-i18n=\"list.empty\">Pas encore d'articles.</p><p><a href=\"{aboutHref}\" data-i18n=\"list.empty.link\">En savoir plus sur la page À propos</a></p>";
 
         var listHtml = PostListRenderer.Render(baseHref, posts, includeExcerpt: false, emptyStateHtml: emptyState);
 
         SitePageWriter.WriteHtml(
             options,
             relativeOutputPath,
-            title: "All Posts",
+            title: "Tous les articles",
             description: "Browse all posts",
             canonicalHref: OutputPaths.HrefForPostsIndex(),
             openGraphHtml: openGraph,
             bodyTemplateName: "list.html",
             tokens: new Dictionary<string, string>
             {
-                ["LIST_TITLE"] = "All Posts",
                 ["POST_LIST"] = listHtml,
             });
     }

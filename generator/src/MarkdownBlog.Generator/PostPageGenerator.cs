@@ -17,9 +17,10 @@ public static class PostPageGenerator
         var bodyHtml = TemplateRenderer.Render(bodyTemplate, new Dictionary<string, string>
         {
             ["POST_TITLE"] = post.Title,
+            ["POST_TITLE_EN"] = post.TitleEn ?? post.Title,
             ["POST_DATE_ISO"] = post.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
-            ["POST_DATE_DISPLAY"] = post.Date.ToString("MMMM d, yyyy", CultureInfo.InvariantCulture),
             ["POST_CONTENT"] = post.ContentHtml,
+            ["POST_CONTENT_EN"] = post.ContentHtmlEn ?? post.ContentHtml,
         });
 
         var layoutTemplate = TemplateRenderer.LoadTemplate(options.TemplatesDir, "layout.html");

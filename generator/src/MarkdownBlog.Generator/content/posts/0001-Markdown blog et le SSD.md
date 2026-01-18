@@ -1,7 +1,11 @@
 ---
-title: "MarkdownBlog et le Spec-Driven Development"
+title:
+  fr: "MarkdownBlog et le Spec-Driven Development"
+  en: "MarkdownBlog and Spec-Driven Development"
 date: 2020-01-01
-excerpt: "C'est quoi le Spec-Driven Development et comment ça m'a aidé à construire ce blog."
+excerpt:
+  fr: "C'est quoi le Spec-Driven Development et comment ça m'a aidé à construire ce blog."
+  en: "What is Spec-Driven Development and how it helped me build this blog."
 cover: ../../assets/img/cover.svg
 tags:
   - dotnet
@@ -128,3 +132,122 @@ Ce que je retiens de cette expérience :
 - Je n'aurais pas du tout fait comme ça si j'avais dû le faire moi-même (spec technique pas assez claire ?). Par exemple, j'ai beaucoup de classes statiques. Pour un projet perso, je m'en contenterai pour le moment.
 - Parfait pour démarrer un projet quand on a l'idée mais pas encore tous les détails.
 - Je prévois d'ajouter d'autres fonctionnalités mais ce sera en vibe codant et plus avec Spec Kit.
+
+<!-- lang:en -->
+
+Welcome to my blog!
+
+I've wanted to start a blog for years, for many reasons.
+The first is simply to verify my level of understanding. If I can explain a concept, it's clear in my mind. To avoid writing nonsense, I will certainly deepen my knowledge. Finally, on a less personal note, it allows me to share discoveries and spark discussions. It also helps me expand my network and collaborate more.
+
+Very simply, here's what I wanted:
+- [Never lose my words](https://www.hanselman.com/blog/your-words-are-wasted)
+- Be able to write without worrying about HTML
+- Not host the blog myself
+- Be able to change hosting easily
+- Not pay for hosting (if possible)
+
+## MarkdownBlog ##
+
+What always held me back was setting up the blog. Writing, yes, but creating the blog... No time, always something better to do, etc. I'm sure this is a fairly common feeling.
+
+To my great delight, AI has made significant progress recently and now allows me to start building a blog without spending a huge amount of time. Cherry on top: I took the opportunity to explore generative AI tools.
+
+To meet this need, I created a custom project, **MarkdownBlog**, a static blog generator in .NET 10: home page, article index, article pages, and SEO basics like Open Graph tags, canonical URLs, `robots.txt` and a `sitemap.xml`. It parses markdown files to generate a static blog. This project is hosted [on GitHub](https://github.com/TedevFR/MarkdownBlog) and a small GitHub Action publishes the result using GitHub Pages.
+
+Once the project is finished, I'll just need to push a new markdown file to update the blog. Perfect!
+
+Now it's time to get started. To make it fun and educational, I decided to do it with Spec-Driven Development.
+
+## Spec-Driven Development
+
+After TDD and BDD, comes SDD (nothing to do with a hard drive), Spec-Driven Development.
+The idea is to write specifications first, then generate code from them... That's already what we do, you might say, and the tool is the developer. So what's the difference?
+The term is still new, I recommend reading [this article](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) to understand that the meaning is not yet fully defined. I will try here to give you my own definition.
+
+The SDD approach emphasizes specifications even more by making them the most important thing in the project. It's no longer the code that is maintained in the repo but the specifications. The code remains the final result, but it loses its importance. It has become truly disposable, like your local binaries after debugging.
+All this is of course possible in a more or less futuristic context in which humans no longer write code but this task is entrusted to an AI.
+
+What's the point?
+
+As often in programming, to encapsulate a complex concept to allow us to focus on a higher level of abstraction. If we look at history, we started with very low-level programming. Hello assembler. Everything was long, we had to do everything ourselves. Over time, higher-level languages appeared, allowing us to forget certain details and focus on more important things like architecture. SDD claims to be the next step by directly using human language. Architecture and even knowledge of a programming language could become implementation details. AI will handle all that.
+
+More concretely, you decide to change the language in which your application is made? Change your spec (yes, a spec can also be technical!) and regenerate your project, that's it. Of course, today's AI doesn't yet allow us to do that, but it will probably be possible one day.
+
+## Spec Kit ##
+
+I knew what I wanted but only in broad strokes. I thought I would have to write all the specifications tediously and then Spec Kit would do all the code for me. Not at all! Spec Kit allowed me to get started quickly without having all the details in mind. Spec Kit defines a workflow to help you generate everything it needs. Each step is done using its own prompt. These prompts are installed when initializing Spec Kit. I'll skip the installation phase but everything is explained on their [GitHub](https://github.com/github/spec-kit). Let's look at the steps in order.
+
+### Constitution ###
+
+The first thing to do is establish the constitution, that is, all the rules regarding code quality, standards to follow, performance constraints, etc. If you have writer's block or don't want to bother too much for a low-stakes project, you can ask the AI to generate a first version for you. In my case, I simply asked it to create the perfect constitution for it by briefly explaining the principle of my application.
+
+```
+/speckit.constitution Draw me a constitution
+```
+
+This command will create a `.specify/memory/constitution.md` file that you can modify yourself or with the help of your favorite AI.
+
+### Functional Specifications ###
+
+Let's tackle the specifications. Clearly explain what you want and why. Be careful, nothing technical here, only functional.
+
+```
+/speckit.specify Develop a tool that creates a static site from markdown files, etc.
+```
+
+The AI will then create a `specs/001-xxx/spec.md` file that will contain the list of all your application's specifications. Again, it's up to you to review, modify and complete.
+
+### Clarification ###
+
+This step is there to verify that the specifications are clear and exhaustive enough. If you've been a bit lazy, this is where it will show!
+
+```
+/speckit.clarify
+```
+
+The AI will then show you everything you may have missed. The holes in the racket, as we say. All that's left is to complete/correct everything that's wrong. Don't neglect this step, the more precise you are, the easier the rest will be. As with each step, don't hesitate to challenge the AI, you can run this prompt several times and you can even ask it to focus on a subset of "your" work.
+
+### Plan ###
+
+Everything is ready, well almost, it's time to tell it more technically! You will be able to specify the language(s) of your choice, the type of database and possibly the project structure.
+
+```
+/speckit.plan We will use C# (.NET10) for this project, no modern library for the front, just html/css/js. The test project should use xunit. To parse markdown files, use the library...
+```
+
+This step will generate several files depending on your needs. Again, it's important to review everything and correct if necessary.
+
+### Tasks ###
+
+Now everything should be clear and well defined. As the work to be done can be significant, there is one last preparatory step to help the AI stay on track during implementation. We will generate a list of tasks to be performed one after another or in parallel.
+
+```
+/speckit.tasks
+```
+
+This prompt will create the `tasks.md` file. All the work to be done should be organized into phases and user stories. You still need a little courage to review it and check that there are no inconsistencies.
+
+### Implementation
+
+That's it, it's time to let the AI work and go have a well-deserved coffee.
+
+```
+/speckit.implement
+```
+
+Don't go too far, the AI will probably often ask you for permission to execute certain commands.
+
+### It works... almost... ###
+
+Once your AI's work is finished, you should end up with an almost finished project. There's a good chance that not everything will be perfect, you'll probably have to vibe code some fixes but overall, you should have saved a lot of time!
+
+## Conclusion ##
+
+What I take away from this experience:
+- I saved a lot of time (I probably would never have done it if I had to do it by hand).
+- It was educational to use Spec Kit and discover its internals. The prompts and scripts are readable and available directly upon installation!
+- I had to fix/add features by vibe coding.
+- I wouldn't have done it at all like this if I had to do it myself (technical spec not clear enough?). For example, I have a lot of static classes. For a personal project, I'll settle for that for now.
+- Perfect for starting a project when you have the idea but not all the details yet.
+- I plan to add more features but it will be by vibe coding and no longer with Spec Kit.
