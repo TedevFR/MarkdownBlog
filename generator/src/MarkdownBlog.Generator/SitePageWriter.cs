@@ -37,6 +37,6 @@ public static class SitePageWriter
             ["YEAR"] = DateTimeOffset.UtcNow.Year.ToString()
         });
 
-        File.WriteAllText(outputPath, page, Encoding.UTF8);
+        File.WriteAllText(outputPath, page, new UTF8Encoding(false));
     }
 }

@@ -95,7 +95,7 @@ public static class SiteGenerator
                 ["ABOUT_CONTENT"] = @"
                 <div class=""about-content"">
                 <p>
-                    Je suis <b>Teddy Le Bras</b>, Technical Leader et développeur C# avec plus de 17 ans d’expérience dans la conception et le développement d’applications logicielles complexes.
+                    Je suis <b>Teddy Le Bras</b>, Technical Leader et d&eacute;veloppeur C# avec plus de 17 ans d’expérience dans la conception et le développement d’applications logicielles complexes.
                 </p>
                 
                 <p>
