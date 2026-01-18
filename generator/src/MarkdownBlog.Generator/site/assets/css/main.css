@@ -157,7 +157,8 @@ a:hover {
 }
 
 /* Theme toggle button */
-.theme-toggle {
+.theme-toggle,
+.lang-toggle {
   background: var(--color-button-bg);
   border: 1px solid var(--color-button-border);
   border-radius: 6px;
@@ -172,14 +173,23 @@ a:hover {
   color: var(--color-text);
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.lang-toggle:hover {
   background: var(--color-button-hover);
   border-color: var(--color-text-secondary);
 }
 
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible,
+.lang-toggle:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
+}
+
+/* Language toggle button */
+.lang-toggle .lang-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .theme-toggle svg {

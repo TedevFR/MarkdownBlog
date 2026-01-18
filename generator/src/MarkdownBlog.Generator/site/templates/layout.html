@@ -28,10 +28,16 @@
       <div class="site-owner"><a href="{{NAV_HOME_HREF}}">Teddy Le Bras</a></div>
       <div class="site-nav" aria-label="Primary">
         <nav>
-          <a href="{{NAV_HOME_HREF}}">Home</a> |
-          <a href="{{NAV_POSTS_HREF}}">All Posts</a> |
-          <a href="{{NAV_ABOUT_HREF}}">About</a>
+          <a href="{{NAV_HOME_HREF}}" data-i18n="nav.home">Accueil</a> |
+          <a href="{{NAV_POSTS_HREF}}" data-i18n="nav.posts">Tous les articles</a> |
+          <a href="{{NAV_ABOUT_HREF}}" data-i18n="nav.about">À propos</a>
         </nav>
+<button 
+          class="lang-toggle" 
+          aria-label="Switch to English"
+          type="button">
+          <span class="lang-label">EN</span>
+        </button>
         <button 
           class="theme-toggle" 
           aria-label="Toggle dark mode"
@@ -61,7 +67,7 @@
   </main>
 
   <footer>
-    <small>&copy; {{YEAR}} Mardown Blog par Teddy Le Bras</small>
+    <small>&copy; {{YEAR}} <span data-i18n="footer.copyright">Markdown Blog par Teddy Le Bras</span></small>
   </footer>
 </body>
 </html>

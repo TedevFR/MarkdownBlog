@@ -19,15 +19,30 @@ public static class PostListRenderer
         {
             var href = UrlBuilder.HrefFromRoot(baseHref, post.CanonicalHref);
             var dateIso = post.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-            var dateDisplay = post.Date.ToString("MMMM d, yyyy", CultureInfo.InvariantCulture);
+
+            var titleFr = EscapeHtml(post.Title);
+            var titleEn = EscapeHtml(post.TitleEn ?? post.Title);
 
             sb.Append("  <li>\n");
-            sb.Append($"    <a href=\"{href}\">{EscapeHtml(post.Title)}</a>\n");
-            sb.Append($"    <div><time datetime=\"{dateIso}\">{EscapeHtml(dateDisplay)}</time></div>\n");
+            sb.Append($"    <a href=\"{href}\">");
+            sb.Append($"<span data-i18n-content=\"title-fr\">{titleFr}</span>");
+            sb.Append($"<span data-i18n-content=\"title-en\" style=\"display:none;\">{titleEn}</span>");
+            sb.Append("</a>\n");
+            sb.Append($"    <div><time datetime=\"{dateIso}\" data-i18n-date=\"{dateIso}\"></time></div>\n");
 
-            if (includeExcerpt && !string.IsNullOrWhiteSpace(post.Excerpt))
+            if (includeExcerpt)
             {
-                sb.Append($"    <p>{EscapeHtml(post.Excerpt!)}</p>\n");
+                var excerptFr = post.Excerpt;
+                var excerptEn = post.ExcerptEn ?? post.Excerpt;
+
+                if (!string.IsNullOrWhiteSpace(excerptFr))
+                {
+                    sb.Append($"    <p data-i18n-content=\"excerpt-fr\">{EscapeHtml(excerptFr)}</p>\n");
+                }
+                if (!string.IsNullOrWhiteSpace(excerptEn))
+                {
+                    sb.Append($"    <p data-i18n-content=\"excerpt-en\" style=\"display:none;\">{EscapeHtml(excerptEn)}</p>\n");
+                }
             }
 
             sb.Append("  </li>\n");

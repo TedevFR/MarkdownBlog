@@ -1,10 +1,13 @@
 <article>
   <header>
-    <h1>{{POST_TITLE}}</h1>
-    <p><time datetime="{{POST_DATE_ISO}}">{{POST_DATE_DISPLAY}}</time></p>
+    <h1><span data-i18n-content="title-fr">{{POST_TITLE}}</span><span data-i18n-content="title-en" style="display:none;">{{POST_TITLE_EN}}</span></h1>
+    <p><span data-i18n="post.published">Publié le</span> <time datetime="{{POST_DATE_ISO}}" data-i18n-date="{{POST_DATE_ISO}}"></time></p>
   </header>
 
-  <div class="prose">
+  <div class="prose" data-i18n-content="content-fr">
     {{POST_CONTENT}}
+  </div>
+  <div class="prose" data-i18n-content="content-en" style="display:none;">
+    {{POST_CONTENT_EN}}
   </div>
 </article>

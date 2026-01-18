@@ -112,6 +112,30 @@ public static class FrontMatterParser
         return null;
     }
 
+    public static (string? Fr, string? En) GetLocalizedString(IReadOnlyDictionary<string, object?> data, string key)
+    {
+        if (!data.TryGetValue(key, out var value) || value is null)
+        {
+            return (null, null);
+        }
+
+        // If it's a dictionary with fr/en keys
+        if (value is IReadOnlyDictionary<string, object?> dict)
+        {
+            var fr = dict.TryGetValue("fr", out var frValue) ? frValue?.ToString()?.Trim() : null;
+            var en = dict.TryGetValue("en", out var enValue) ? enValue?.ToString()?.Trim() : null;
+            return (fr, en);
+        }
+
+        // If it's a simple string, use it for both languages (backward compatibility)
+        var simple = value switch
+        {
+            string s => string.IsNullOrWhiteSpace(s) ? null : s.Trim(),
+            _ => value.ToString()?.Trim(),
+        };
+        return (simple, simple);
+    }
+
     private static object? ConvertYamlNode(YamlNode node)
     {
         return node switch
