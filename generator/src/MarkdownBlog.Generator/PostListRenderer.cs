@@ -28,7 +28,6 @@ public static class PostListRenderer
             if (includeExcerpt && !string.IsNullOrWhiteSpace(post.Excerpt))
             {
                 sb.Append($"    <p>{EscapeHtml(post.Excerpt!)}</p>\n");
-                sb.Append($"    <p><a href=\"{href}\">Read more</a></p>\n");
             }
 
             sb.Append("  </li>\n");
