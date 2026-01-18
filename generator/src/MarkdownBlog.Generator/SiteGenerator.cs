@@ -95,32 +95,32 @@ public static class SiteGenerator
                 ["ABOUT_CONTENT"] = @"
                 <div class=""about-content"">
                 <p>
-                    Je suis <b>Teddy Le Bras</b>, Technical Leader et développeur C# avec plus de 17 ans d’expérience dans la conception et le développement d’applications logicielles complexes.
+                    Je suis <b>Teddy Le Bras</b>, Technical Leader et dÃ©veloppeur C# avec plus de 17 ans d'expÃ©rience dans la conception et le dÃ©veloppement d'applications logicielles complexes.
                 </p>
                 
                 <p>
-                    Depuis le début de ma carrière, je navigue entre passion pour la technique, goût pour la résolution de problèmes et envie de transmettre.
-                    Aujourd’hui, j’interviens chez Fnac, où j’accompagne une équipe de développeurs dans la conception de services critiques, la modernisation d’applications (.NET 4.8 vers .NET 10) et la migration vers le cloud Azure.
-                    Mon quotidien, c’est autant du code que de l’architecture, du mentoring, des revues de code, et des échanges avec les Product Owners, QA et DevOps pour faire avancer les projets dans le bon sens.
-                    J’ai notamment travaillé sur l'API de pricing, capables d’encaisser des pics à 1,2 million de requêtes par minute.
+                    Depuis le dÃ©but de ma carriÃ¨re, je navigue entre passion pour la technique, goÃ»t pour la rÃ©solution de problÃ¨mes et envie de transmettre.
+                    Aujourd'hui, j'interviens chez Fnac, oÃ¹ j'accompagne une Ã©quipe de dÃ©veloppeurs dans la conception de services critiques, la modernisation d'applications (.NET 4.8 vers .NET 10) et la migration vers le cloud Azure.
+                    Mon quotidien, c'est autant du code que de l'architecture, du mentoring, des revues de code, et des Ã©changes avec les Product Owners, QA et DevOps pour faire avancer les projets dans le bon sens.
+                    J'ai notamment travaillÃ© sur l'API de pricing, capables d'encaisser des pics Ã  1,2 million de requÃªtes par minute.
                 </p>
 
                 <p>
-                    Ce qui me motive le plus, ce n’est pas seulement de faire fonctionner un système, mais de le rendre robuste, compréhensible et durable : clean architecture, qualité de code, automatisation, réduction de la dette technique, amélioration continue.
-                    J’accorde aussi beaucoup d’importance à la transmission : accompagner les développeurs, faire grandir les équipes, partager les bonnes pratiques.
+                    Ce qui me motive le plus, ce n'est pas seulement de faire fonctionner un systÃ¨me, mais de le rendre robuste, comprÃ©hensible et durable : clean architecture, qualitÃ© de code, automatisation, rÃ©duction de la dette technique, amÃ©lioration continue.
+                    J'accorde aussi beaucoup d'importance Ã  la transmission : accompagner les dÃ©veloppeurs, faire grandir les Ã©quipes, partager les bonnes pratiques.
                 </p>
 
                 <p>
-                    En parallèle de mon activité, je m’intéresse de très près à l’intelligence artificielle et à son impact sur notre métier.
-                    Je fais partie d’une squad IA dédiée à la veille, à la formation et à la création d’outils pour améliorer la productivité des équipes.
-                    <br />Ce blog est justement né de cette envie : explorer, comprendre, tester, prendre du recul… et partager.
+                    En parallÃ¨le de mon activitÃ©, je m'intÃ©resse de trÃ¨s prÃ¨s Ã  l'intelligence artificielle et Ã  son impact sur notre mÃ©tier.
+                    Je fais partie d'une squad IA dÃ©diÃ©e Ã  la veille, Ã  la formation et Ã  la crÃ©ation d'outils pour amÃ©liorer la productivitÃ© des Ã©quipes.
+                    <br />Ce blog est justement nÃ© de cette envie : explorer, comprendre, tester, prendre du reculâ€¦ et partager.
                     <br />Tu trouveras ici des articles autour de :
                     <ul>
-                        <li>la conception et le développement logiciel (.NET, architecture, bonnes pratiques)</li>
+                        <li>la conception et le dÃ©veloppement logiciel (.NET, architecture, bonnes pratiques)</li>
                         <li>le cloud et la performance</li>
-                        <li>les outils et la productivité</li>
-                        <li>l’intelligence artificielle et l’avenir du métier</li>
-                        <li>et parfois, des réflexions plus personnelles sur la tech et le travail</li>
+                        <li>les outils et la productivitÃ©</li>
+                        <li>l'intelligence artificielle et l'avenir du mÃ©tier</li>
+                        <li>et parfois, des rÃ©flexions plus personnelles sur la tech et le travail</li>
                     </ul>
                 </p>
                 </div>",
