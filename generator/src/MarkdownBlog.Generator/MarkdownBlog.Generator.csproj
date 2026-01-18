@@ -13,6 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="content\posts\0001-Markdown blog et le SSD.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="content\posts\first-post.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

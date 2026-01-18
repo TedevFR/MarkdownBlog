@@ -266,7 +266,7 @@ This repository is configured for **automatic deployment to GitHub Pages** using
 The `.github/workflows/dotnet.yml` workflow automates the entire build and deployment process:
 
 1. **Build & Test** 
-   - Sets up .NET 8.0 environment (compatible with .NET 10 projects)
+   - Sets up .NET 10.0 environment
    - Restores dependencies
    - Builds the solution in Release configuration
    - Runs all unit and integration tests

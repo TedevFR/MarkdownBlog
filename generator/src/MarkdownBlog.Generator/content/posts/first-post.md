@@ -1,6 +1,6 @@
 ---
 title: "First Post: Building a Static Blog"
-date: 2025-12-18
+date: 2999-12-18
 excerpt: A quick tour of a tiny static blog generator with Markdown front-matter.
 cover: ../../assets/img/cover.svg
 tags:

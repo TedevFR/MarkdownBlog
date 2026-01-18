@@ -39,8 +39,7 @@ public static class PostPageGenerator
             ["NAV_POSTS_HREF"] = UrlBuilder.HrefFromRoot(baseHref, OutputPaths.HrefForPostsIndex()),
             ["NAV_ABOUT_HREF"] = UrlBuilder.HrefFromRoot(baseHref, OutputPaths.HrefForAbout()),
             ["BODY"] = bodyHtml,
-            ["YEAR"] = DateTimeOffset.UtcNow.Year.ToString(CultureInfo.InvariantCulture),
-            ["SITE_NAME"] = "Markdown Blog",
+            ["YEAR"] = DateTimeOffset.UtcNow.Year.ToString(CultureInfo.InvariantCulture)
         });
 
         File.WriteAllText(outputPath, pageHtml, Encoding.UTF8);
