@@ -34,8 +34,7 @@ public static class SitePageWriter
             ["NAV_POSTS_HREF"] = UrlBuilder.HrefFromRoot(baseHref, OutputPaths.HrefForPostsIndex()),
             ["NAV_ABOUT_HREF"] = UrlBuilder.HrefFromRoot(baseHref, OutputPaths.HrefForAbout()),
             ["BODY"] = bodyHtml,
-            ["YEAR"] = DateTimeOffset.UtcNow.Year.ToString(),
-            ["SITE_NAME"] = "Markdown Blog",
+            ["YEAR"] = DateTimeOffset.UtcNow.Year.ToString()
         });
 
         File.WriteAllText(outputPath, page, Encoding.UTF8);
