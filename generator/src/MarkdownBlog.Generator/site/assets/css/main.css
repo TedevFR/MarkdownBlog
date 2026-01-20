@@ -72,7 +72,24 @@ main {
   width: 100%;
 }
 
-header,
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+body > header > .header-container {
+  max-width: min(90ch, 1200px);
+  width: 100%;
+}
+
 footer {
   max-width: min(90ch, 1200px);
   margin: 0 auto;
@@ -417,13 +434,13 @@ h3 {
 
 /* On larger screens, give the header more presence: increase padding and site-owner size */
 @media (min-width: 1000px) {
-  main,
-  header,
-  footer {
-    max-width: 1100px; /* prioritize a wider readable width on desktop */
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+main,
+body > header > .header-container,
+footer {
+  max-width: 1100px; /* prioritize a wider readable width on desktop */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 
   .header-container {
     padding: 1rem 0;
