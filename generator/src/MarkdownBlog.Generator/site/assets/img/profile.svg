@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#e8ecf0"/>
+  <circle cx="150" cy="120" r="50" fill="#8b949e"/>
+  <ellipse cx="150" cy="260" rx="80" ry="60" fill="#8b949e"/>
+  <text x="150" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#57606a">Photo placeholder</text>
+</svg>
