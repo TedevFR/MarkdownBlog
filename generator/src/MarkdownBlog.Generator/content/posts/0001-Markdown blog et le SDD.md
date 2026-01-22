@@ -2,9 +2,9 @@
 title:
   fr: "MarkdownBlog et le Spec-Driven Development"
   en: "MarkdownBlog and Spec-Driven Development"
-date: 2020-01-01
+date: 2026-01-22
 excerpt:
-  fr: "C'est quoi le Spec-Driven Development et comment ça m'a aidé à construire ce blog."
+  fr: "Qu'est-ce que le Spec-Driven Development et comment ça m'a aidé à construire ce blog."
   en: "What is Spec-Driven Development and how it helped me build this blog."
 cover: ../../assets/img/cover.svg
 tags:

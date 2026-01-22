@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="content\posts\0001-Markdown blog et le SSD.md">
+    <None Update="content\posts\0001-Markdown blog et le SDD.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="content\posts\first-post.md">

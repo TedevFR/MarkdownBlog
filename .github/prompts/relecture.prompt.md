@@ -1,5 +1,4 @@
 ---
-mode: 'agent'
 name: 'Relecture'
 description: 'Relis un article et propose des améliorations'
 ---
