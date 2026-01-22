@@ -25,7 +25,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "prompts", "prompts", "{438DCD20-5777-4813-96A8-A3E8ABE75002}"
 	ProjectSection(SolutionItems) = preProject
 		.github\prompts\correction.prompt.md = .github\prompts\correction.prompt.md
+		.github\prompts\newBlogPostSkeleton.prompt.md = .github\prompts\newBlogPostSkeleton.prompt.md
 		.github\prompts\Relecture.prompt.md = .github\prompts\Relecture.prompt.md
+		.github\prompts\translateBlogPost.prompt.md = .github\prompts\translateBlogPost.prompt.md
 	EndProjectSection
 EndProject
 Global

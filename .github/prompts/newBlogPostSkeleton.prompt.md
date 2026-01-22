@@ -8,7 +8,7 @@ Créé le squelette d'un nouvel article de blog en suivant ces étapes :
 - Créé un fichier markdown dans le répertoire `src/MarkdownBlog.Generator/content/posts/` avec comme nom de fichier `xxxx-new.md` (remplace `xxxx` par le numéro d'article suivant).
 - Le fichier doit contenir ce qui dans la section "Contenu du fichier markdown" ci-dessous.
 - Utilise la date actuelle pour le champ `date` dans le front matter.
-
+- Le fichier créé doit être en `Copy if newer` dans le projet sinon l'article ne sera pas pris en compte.
 
 # Contenu du fichier markdown
 ```
